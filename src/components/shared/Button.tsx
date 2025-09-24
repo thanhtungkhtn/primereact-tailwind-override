@@ -1,14 +1,12 @@
-import React from "react";
-import { Button as PrimeButton } from "primereact/button";
+import React, { FC } from "react";
+import { Button as PrimeButton, ButtonProps } from "primereact/button";
 
-import { Message } from 'primereact/message';
-import { InputText } from 'primereact/inputtext';
+type Props = ButtonProps;
 
-const Button = () => {
+const Button: FC<Props> = ({ title, ...otherProps }) => {
   return (
-    <PrimeButton className="bg-amber-800 border-2 rounded-4xl">
-      <Message text="Prime React with tailwind" className="text-red-500 bg-amber-300" />
-      <InputText className="border-2 rounded-4xl" />
+    <PrimeButton className="bg-primary border-2 rounded-4xl mx-2 active:bg-amber-600 focus:shadow-none" title={title} {...otherProps} >
+      {title}
     </PrimeButton>
   );
 };
